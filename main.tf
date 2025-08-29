@@ -15,3 +15,13 @@ resource "azurerm_storage_account" "stgpreprod" {
   account_tier             = "Standard"
   account_replication_type = "ZRS"
 }
+
+resource "azurerm_storage_account" "stgprod" {
+    depends_on = [azurerm_resource_group.rg1]
+    name = "prodst"
+    resource_group_name = "rg_prod"
+    location = "eastus"
+    account_tier = "Standard"
+    account_replication_type = "LRS"
+
+}
